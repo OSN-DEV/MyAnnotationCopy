@@ -4,9 +4,35 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:MyAnnotationCopy.UI.MyAnnotationMain"
+        xmlns:u="clr-namespace:MyAnnotationCopy.Component"
+        xmlns:lib="clr-namespace:OsnCsLib.WPFComponent.Control;assembly=OsnCsLib.WPFComponent"
         mc:Ignorable="d"
-        Title="MyAnnotationMainWindow" Height="450" Width="800">
-    <Grid>
-        
+        Title="アノテーションコピー" Height="180" Width="390" WindowStartupLocation="CenterScreen" ResizeMode="NoResize">
+    <Window.Resources>
+        <ResourceDictionary>
+            <ResourceDictionary.MergedDictionaries>
+                <ResourceDictionary Source="/MyAnnotationCopy;component/Component/Generic.xaml"  />
+                <ResourceDictionary Source="pack://application:,,,/OsnCsLib.WPFComponent;component/Themes/Generic.xaml"  />
+            </ResourceDictionary.MergedDictionaries>
+        </ResourceDictionary>
+    </Window.Resources>
+    <Grid Margin="10, 5">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="30"/>
+            <RowDefinition Height="35" />
+            <RowDefinition Height="35" />
+            <RowDefinition Height="35" />
+        </Grid.RowDefinitions>
+        <StackPanel Orientation="Horizontal" Grid.Row="0">
+            <Button Content="▲" Style="{StaticResource LabelButton}" Margin="0,5,10,5" />
+            <lib:CustomTextBox Width="35" TextAlignment="Right" />
+            <Button Content="▼" Style="{StaticResource LabelButton}" />
+            <Button Content="reset" Style="{StaticResource LabelButton}" />
+        </StackPanel>
+
+        <u:AnnottionControl Grid.Row="1" />
+        <u:AnnottionControl Grid.Row="2" />
+        <u:AnnottionControl Grid.Row="3" />
+
     </Grid>
 </Window>

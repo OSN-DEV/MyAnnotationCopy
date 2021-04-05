@@ -5,6 +5,19 @@ using System.Text;
 using System.Threading.Tasks;
 
 namespace MyAnnotationCopy.AppCommon {
-    class Constants {
+    /// <summary>
+    /// 定数定義
+    /// </summary>
+    internal class Constants {
+
+        /// <summary>
+        /// 明細の最大行数
+        /// </summary>
+        internal const int MaxRowCount = 3;
+
+        /// <summary>
+        /// アプリケーションデータ
+        /// </summary>
+        internal static readonly string AppDataFile = OsnCsLib.Common.Util.GetAppPath() + @"app.data";
     }
 }

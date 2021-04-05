@@ -17,8 +17,17 @@ namespace MyAnnotationCopy.UI.MyAnnotationMain {
     /// アノテーションメイン画面
     /// </summary>
     public partial class MyAnnotationMainWindow : Window {
+
+        #region Declaration
+        private MyAnnotationMainViewModel _viewModel;
+        #endregion
+
+        #region Constructor
         public MyAnnotationMainWindow() {
             InitializeComponent();
+
+
         }
+        #endregion
     }
 }

@@ -9,6 +9,15 @@ namespace MyAnnotationCopy.UI.MyAnnotationMain {
     /// <summary>
     /// アノテーションメイン画面のビューモデル
     /// </summary>
-    class MyAnnotationMainViewModel : BaseBindable {
+    internal class MyAnnotationMainViewModel : BaseBindable {
+
+        #region Declaration
+        MyAnnotationMainWindow _window;
+        #endregion
+
+        #region Internal Property
+
+        #endregion
+
     }
 }
