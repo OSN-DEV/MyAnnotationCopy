@@ -17,12 +17,12 @@
         </ResourceDictionary>
     </UserControl.Resources>
     <StackPanel Orientation="Horizontal" VerticalAlignment="Center">
-        <CheckBox Content="increment"/>
-        <CheckBox Content="wide" Margin="10,0,0,0" />
+        <CheckBox Content="increment" IsChecked="{Binding Path=IsUseIncrement, ElementName=Main}"/>
+        <CheckBox Content="wide" Margin="10,0,0,0" IsChecked="{Binding Path=IsUseWide, ElementName=Main}"/>
         <TextBlock Width="10" />
-        <lib:CustomTextBox ImeMode="Off" Width="60"  />
-        <TextBlock Width="35" TextAlignment="Right"/>
-        <lib:CustomTextBox ImeMode="Off"  Width="60"/>
-        <Button Content="Copy" Style="{StaticResource LabelButton}"/>
+        <lib:CustomTextBox ImeMode="Off" Width="60" Text="{Binding Path=Prefix, ElementName=Main}"/>
+        <TextBlock Width="35" TextAlignment="Right" Text="{Binding Path=CurrentNumberLabel, ElementName=Main}"/>
+        <lib:CustomTextBox ImeMode="Off"  Width="60" Text="{Binding Path=Safix, ElementName=Main}"/>
+        <Button Content="Copy" Style="{StaticResource LabelButton}" Command="{Binding CopyCommand}"/>
     </StackPanel>
 </UserControl>
