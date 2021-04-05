@@ -20,7 +20,7 @@
     <DebugSymbols>true</DebugSymbols>
     <DebugType>full</DebugType>
     <Optimize>false</Optimize>
-    <OutputPath>bin\Debug\</OutputPath>
+    <OutputPath>bin\Debug\1\</OutputPath>
     <DefineConstants>DEBUG;TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
@@ -77,8 +77,8 @@
     <Compile Include="UI\MyAnnotationMain\MyAnnotationMainWindow.xaml.cs">
       <DependentUpon>MyAnnotationMainWindow.xaml</DependentUpon>
     </Compile>
-    <Compile Include="UseCase\IPreferenceUserCase.cs" />
-    <Compile Include="UseCase\PreferenceUserCase.cs" />
+    <Compile Include="UseCase\IPreferenceUseCase.cs" />
+    <Compile Include="UseCase\PreferenceUseCase.cs" />
     <Page Include="Component\AnnottionControl.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>

@@ -1,4 +1,5 @@
 ﻿using MyAnnotationCopy.Data;
+using MyAnnotationCopy.UseCase;
 using OsnCsLib.WPFComponent.Bind;
 using System;
 using System.Collections.Generic;
@@ -14,6 +15,7 @@ namespace MyAnnotationCopy.UI.MyAnnotationMain {
 
         #region Declaration
         MyAnnotationMainWindow _window;
+        IPreferenceUseCase _useCase;
         #endregion
 
         #region Public Property
@@ -36,8 +38,9 @@ namespace MyAnnotationCopy.UI.MyAnnotationMain {
         #endregion
 
         #region Constructor
-        internal MyAnnotationMainViewModel(MyAnnotationMainWindow window) {
+        internal MyAnnotationMainViewModel(MyAnnotationMainWindow window, IPreferenceUseCase useCase) {
             this._window = window;
+            this._useCase = useCase;
             this.Initialize();
         }
         #endregion
@@ -92,8 +95,7 @@ namespace MyAnnotationCopy.UI.MyAnnotationMain {
             this.CountDownCommand = new DelegateCommand(this.CountDownClick, CanExecuteCountButtonEvent);
             this.ResetCommand = new DelegateCommand(this.ResetClick);
 
-            // 
-            this.AppData = new PreferenceData(); // TODO 保存しているデータの読込
+            this.AppData = this._useCase.Load();
         }
         #endregion
 

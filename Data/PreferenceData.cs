@@ -1,6 +1,5 @@
 ﻿using MyAnnotationCopy.AppCommon;
 using OsnCsLib.WPFComponent.Bind;
-using System.Collections.ObjectModel;
 
 namespace MyAnnotationCopy.Data {
     /// <summary>
@@ -30,7 +29,7 @@ namespace MyAnnotationCopy.Data {
         /// <summary>
         /// 現在の番号
         /// </summary>
-        private int _currentNumber;
+        private int _currentNumber = 1;
         internal int CurrentNumber {
             set { base.SetProperty(ref this._currentNumber, value); }
             get { return this._currentNumber; }
@@ -44,6 +43,11 @@ namespace MyAnnotationCopy.Data {
             set { base.SetProperty(ref this._settingDetail, value); }
             get { return this._settingDetail; }
         }
+        #endregion
+
+        #region Constructor
+        internal PreferenceData() { }
+
         #endregion
     }
 }

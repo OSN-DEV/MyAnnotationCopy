@@ -1,4 +1,6 @@
-﻿using System.Windows;
+﻿using MyAnnotationCopy.Repo;
+using MyAnnotationCopy.UseCase;
+using System.Windows;
 
 namespace MyAnnotationCopy.UI.MyAnnotationMain {
     /// <summary>
@@ -14,8 +16,12 @@ namespace MyAnnotationCopy.UI.MyAnnotationMain {
         public MyAnnotationMainWindow() {
             InitializeComponent();
 
-            this._viewModel = new MyAnnotationMainViewModel(this);
+            this._viewModel = new MyAnnotationMainViewModel(this, new PreferenceUseCase(new PreferenceXmlRepo()));
             this.DataContext = this._viewModel;
+
+            this.Closing += (sender, e) => {
+                this._viewModel.AppClosing();
+            };
         }
         #endregion
     }
