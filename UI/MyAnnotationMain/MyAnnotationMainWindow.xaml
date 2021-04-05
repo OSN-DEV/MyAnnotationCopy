@@ -24,15 +24,31 @@
             <RowDefinition Height="35" />
         </Grid.RowDefinitions>
         <StackPanel Orientation="Horizontal" Grid.Row="0">
-            <Button Content="▲" Style="{StaticResource LabelButton}" Margin="0,5,10,5" />
-            <lib:CustomTextBox Width="35" TextAlignment="Right" />
-            <Button Content="▼" Style="{StaticResource LabelButton}" />
-            <Button Content="reset" Style="{StaticResource LabelButton}" />
+            <Button Content="▲" Style="{StaticResource LabelButton}" Margin="0,5,10,5" Command="{Binding CountUpCommand}"/>
+            <lib:CustomTextBox Width="35" TextAlignment="Right" Text="{Binding AppData.CurrentNumber}"/>
+            <Button Content="▼" Style="{StaticResource LabelButton}" Command="{Binding CountDownCommand}"/>
+            <Button Content="reset" Style="{StaticResource LabelButton}"  Command="{Binding ResetCommand}"/>
         </StackPanel>
 
-        <u:AnnottionControl Grid.Row="1" />
-        <u:AnnottionControl Grid.Row="2" />
-        <u:AnnottionControl Grid.Row="3" />
+        <!-- 実装速度を優先するためListViewは使用しない -->
+        <u:AnnottionControl Grid.Row="1" 
+                            IsUseIncrement="{Binding AppData.SettingDetail[0].IsUseIncrement}"
+                            IsUseWide="{Binding AppData.SettingDetail[0].IsUseWide}"
+                            Prefix="{Binding AppData.SettingDetail[0].Prefix}"
+                            CurrentNumberLabel="{Binding AppData.CurrentNumber}"
+                            Safix="{Binding AppData.SettingDetail[0].Safix}"/>
+        <u:AnnottionControl Grid.Row="2" 
+                            IsUseIncrement="{Binding AppData.SettingDetail[1].IsUseIncrement}"
+                            IsUseWide="{Binding AppData.SettingDetail[1].IsUseWide}"
+                            Prefix="{Binding AppData.SettingDetail[1].Prefix}"
+                            CurrentNumberLabel="{Binding AppData.CurrentNumber}"
+                            Safix="{Binding AppData.SettingDetail[1].Safix}"/>
+        <u:AnnottionControl Grid.Row="3" 
+                            IsUseIncrement="{Binding AppData.SettingDetail[2].IsUseIncrement}"
+                            IsUseWide="{Binding AppData.SettingDetail[2].IsUseWide}"
+                            Prefix="{Binding AppData.SettingDetail[2].Prefix}"
+                            CurrentNumberLabel="{Binding AppData.CurrentNumber}"
+                            Safix="{Binding AppData.SettingDetail[2].Safix}"/>
 
     </Grid>
 </Window>

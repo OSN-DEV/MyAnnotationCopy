@@ -40,9 +40,9 @@ namespace MyAnnotationCopy.Component {
         /// <summary>
         /// 現在の番号ラベル
         /// </summary>
-        public static readonly DependencyProperty CurrentNumberLabelProperty = RegisterProperty(nameof(Prefix), typeof(string));
-        public string CurrentNumberLabel {
-            get { return (string)GetValue(CurrentNumberLabelProperty); }
+        public static readonly DependencyProperty CurrentNumberLabelProperty = RegisterProperty(nameof(CurrentNumberLabel), typeof(int));
+        public int CurrentNumberLabel {
+            get { return (int)GetValue(CurrentNumberLabelProperty); }
             set { SetValue(CurrentNumberLabelProperty, value); }
         }
 
@@ -64,8 +64,7 @@ namespace MyAnnotationCopy.Component {
         #region Constructor
         public AnnottionControl() {
             InitializeComponent();
-            this.CopyCommand = new DelegateCommand(CopyClick, () =>
-            (null != this.CurrentNumberLabel && 0 < this.CurrentNumberLabel.Length));
+            this.CopyCommand = new DelegateCommand(CopyClick, () => (0 < this.CurrentNumberLabel));
         }
 
         static AnnottionControl() {
