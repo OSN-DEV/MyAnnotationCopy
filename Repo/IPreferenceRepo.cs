@@ -42,12 +42,12 @@ namespace MyAnnotationCopy.Repo {
         /// <summary>
         /// 現在の番号
         /// </summary>
-        public int CurrentNumber { set; get; }
+        public int CurrentNumber { set; get; } = 1;
 
         /// <summary>
         /// 設定詳細
         /// </summary>
-        internal Detail[] SettingDetail { set; get; } = new Detail[Constants.MaxRowCount];
+        public Detail[] SettingDetail { set; get; } = new Detail[Constants.MaxRowCount];
         #endregion
 
         #region Internal Method

@@ -50,11 +50,12 @@ namespace MyAnnotationCopy.Repo {
             this.CurrentNumber = src.CurrentNumber;
             this.SettingDetail = new Detail[Constants.MaxRowCount];
             for (var i = 0; i < this.SettingDetail.Length; i++) {
-                this.SettingDetail[i] = new Detail();
-                this.SettingDetail[i].IsUseIncrement = src.SettingDetail[i].IsUseIncrement;
-                this.SettingDetail[i].IsUseWide = src.SettingDetail[i].IsUseWide;
-                this.SettingDetail[i].Prefix = src.SettingDetail[i].Prefix;
-                this.SettingDetail[i].Safix = src.SettingDetail[i].Safix;
+                this.SettingDetail[i] = new Detail() {
+                    IsUseIncrement = src.SettingDetail[i].IsUseIncrement,
+                    IsUseWide = src.SettingDetail[i].IsUseWide,
+                    Prefix = src.SettingDetail[i].Prefix,
+                    Safix = src.SettingDetail[i].Safix
+                };
             }
         }
         #endregion

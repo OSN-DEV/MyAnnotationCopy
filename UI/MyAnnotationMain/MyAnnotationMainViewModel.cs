@@ -14,8 +14,8 @@ namespace MyAnnotationCopy.UI.MyAnnotationMain {
     internal class MyAnnotationMainViewModel : BaseBindable {
 
         #region Declaration
-        MyAnnotationMainWindow _window;
-        IPreferenceUseCase _useCase;
+        private readonly MyAnnotationMainWindow _window;
+        private readonly IPreferenceUseCase _useCase;
         #endregion
 
         #region Public Property
@@ -50,7 +50,9 @@ namespace MyAnnotationCopy.UI.MyAnnotationMain {
         /// アプリ終了時処理
         /// </summary>
         internal void AppClosing() {
-            // TODO : アプリケーションデータを保存する
+            this.AppData.X = this._window.Left;
+            this.AppData.Y = this._window.Top;
+            this._useCase.Save(this.AppData);
         }
         #endregion
 
@@ -59,21 +61,25 @@ namespace MyAnnotationCopy.UI.MyAnnotationMain {
         /// カウントアップ クリック時処理
         /// </summary>
         private void CountUpClick() {
-
+            if (this.AppData.CurrentNumber < 999) {
+                this.AppData.CurrentNumber++;
+            }
         }
 
         /// <summary>
         /// カウントダウン クリック時処理
         /// </summary>
         private void CountDownClick() {
-
+            if (1 < this.AppData.CurrentNumber) {
+                this.AppData.CurrentNumber--;
+            }
         }
 
         /// <summary>
         /// リセット クリック時処理
         /// </summary>
         private void ResetClick() {
-
+            this.AppData.CurrentNumber = 1;
         }
         #endregion
 
@@ -95,6 +101,11 @@ namespace MyAnnotationCopy.UI.MyAnnotationMain {
             this.CountDownCommand = new DelegateCommand(this.CountDownClick, CanExecuteCountButtonEvent);
             this.ResetCommand = new DelegateCommand(this.ResetClick);
 
+            //
+            var asm = System.Reflection.Assembly.GetExecutingAssembly();
+            this._window.Title = $"アノテーションコピーツール({asm.GetName().Version})";
+
+            //
             this.AppData = this._useCase.Load();
         }
         #endregion

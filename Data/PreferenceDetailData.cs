@@ -4,14 +4,14 @@ namespace MyAnnotationCopy.Data {
     /// <summary>
     /// アプリケーションデータ(詳細) データモデル
     /// </summary>
-    internal class PreferenceDetailData : BaseBindable {
+    public class PreferenceDetailData : BaseBindable {
 
         #region Internal Property
         /// <summary>
         /// 自動カウント使用有無
         /// </summary>
         private bool _isUseIncrement;
-        internal bool IsUseIncrement {
+        public bool IsUseIncrement {
             set { base.SetProperty(ref this._isUseIncrement, value); }
             get { return this._isUseIncrement; }
         }
@@ -20,7 +20,7 @@ namespace MyAnnotationCopy.Data {
         /// 全角変換使用有無
         /// </summary>
         private bool _isUseWide;
-        internal bool IsUseWide {
+        public bool IsUseWide {
             set { base.SetProperty(ref this._isUseWide, value); }
             get { return this._isUseWide; }
         }
@@ -29,7 +29,7 @@ namespace MyAnnotationCopy.Data {
         /// プレフィックス
         /// </summary>
         private string _prefix;
-        internal string Prefix {
+        public string Prefix {
             set { base.SetProperty(ref this._prefix, value); }
             get { return this._prefix; }
         }
@@ -38,7 +38,7 @@ namespace MyAnnotationCopy.Data {
         /// サフィックス
         /// </summary>
         private string _safix;
-        internal string Safix {
+        public string Safix {
             set { base.SetProperty(ref this._safix, value); }
             get { return this._safix; }
         }

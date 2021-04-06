@@ -5,14 +5,14 @@ namespace MyAnnotationCopy.Data {
     /// <summary>
     /// アプリケーションデータ データモデル
     /// </summary>
-    internal class PreferenceData : BaseBindable {
+    public class PreferenceData : BaseBindable {
 
         #region Internal Property
         /// <summary>
         /// ウィンドウのX座標
         /// </summary>
         private double _x;
-        internal double X {
+        public double X {
             set { base.SetProperty(ref this._x, value); }
             get { return this._x; }
         }
@@ -21,7 +21,7 @@ namespace MyAnnotationCopy.Data {
         /// ウィンドウのY座標
         /// </summary>
         private double _y;
-        internal double Y {
+        public double Y {
             set { base.SetProperty(ref this._y, value); }
             get { return this._y; }
         }
@@ -30,7 +30,7 @@ namespace MyAnnotationCopy.Data {
         /// 現在の番号
         /// </summary>
         private int _currentNumber = 1;
-        internal int CurrentNumber {
+        public int CurrentNumber {
             set { base.SetProperty(ref this._currentNumber, value); }
             get { return this._currentNumber; }
         }
@@ -39,14 +39,14 @@ namespace MyAnnotationCopy.Data {
         /// 設定詳細
         /// </summary>
         private PreferenceDetailData[] _settingDetail = new PreferenceDetailData[Constants.MaxRowCount];
-        internal PreferenceDetailData[] SettingDetail {
+        public PreferenceDetailData[] SettingDetail {
             set { base.SetProperty(ref this._settingDetail, value); }
             get { return this._settingDetail; }
         }
         #endregion
 
         #region Constructor
-        internal PreferenceData() { }
+        public PreferenceData() { }
 
         #endregion
     }

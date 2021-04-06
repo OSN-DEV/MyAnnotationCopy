@@ -6,7 +6,7 @@ namespace MyAnnotationCopy.UseCase {
     internal class PreferenceUseCase : IPreferenceUseCase {
 
         #region Declaration
-        private IPreferenceRepo _repo;
+        private readonly IPreferenceRepo _repo;
         #endregion
 
         #region Constructor
@@ -29,12 +29,13 @@ namespace MyAnnotationCopy.UseCase {
             };
             result.SettingDetail = new PreferenceDetailData[Constants.MaxRowCount];
             for (var i = 0; i < result.SettingDetail.Length; i++) {
-                var detail = new PreferenceDetailData();
-                detail.IsUseIncrement = this._repo.SettingDetail[i].IsUseIncrement;
-                detail.IsUseWide = this._repo.SettingDetail[i].IsUseWide;
-                detail.Prefix = this._repo.SettingDetail[i].Prefix;
-                detail.Safix = this._repo.SettingDetail[i].Safix;
-                result.SettingDetail[i] = detail;
+                var detail = new PreferenceDetailData() {
+                    IsUseIncrement = this._repo.SettingDetail[i].IsUseIncrement,
+                    IsUseWide = this._repo.SettingDetail[i].IsUseWide,
+                    Prefix = this._repo.SettingDetail[i].Prefix,
+                    Safix = this._repo.SettingDetail[i].Safix
+                };
+            result.SettingDetail[i] = detail;
             }
             return result;
         }

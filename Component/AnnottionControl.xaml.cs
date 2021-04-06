@@ -1,5 +1,6 @@
 ﻿using OsnCsLib.WPFComponent.Bind;
 using System;
+using System.Text.RegularExpressions;
 using System.Windows;
 using System.Windows.Controls;
 
@@ -8,6 +9,15 @@ namespace MyAnnotationCopy.Component {
     /// アノテーション操作コントロール
     /// </summary>
     public partial class AnnottionControl : UserControl {
+
+        #region Public Event
+        public EventHandler<EventArgs> OnCurrentNumberChange;
+        public event EventHandler<EventArgs> CurrentNumberChange {
+            add { OnCurrentNumberChange += value; }
+            remove { OnCurrentNumberChange -= value; }
+        }
+        #endregion
+
 
         #region Public Method
         /// <summary>
@@ -64,7 +74,7 @@ namespace MyAnnotationCopy.Component {
         #region Constructor
         public AnnottionControl() {
             InitializeComponent();
-            this.CopyCommand = new DelegateCommand(CopyClick, () => (0 < this.CurrentNumberLabel));
+            //this.CopyCommand = new DelegateCommand(CopyClick);
         }
 
         static AnnottionControl() {
@@ -77,8 +87,16 @@ namespace MyAnnotationCopy.Component {
         /// <summary>
         /// コピーボタン クリック時処理
         /// </summary>
-        private void CopyClick() {
-            SetTextToClipboard($"{this.Prefix}{this.CurrentNumberLabel}{this.Safix}");
+        private void CopyClick(object sender, EventArgs e) {
+            string num = this.CurrentNumberLabel.ToString();
+            if (this.IsUseWide) {
+                num = HanToZenNum(num);
+            }
+            SetTextToClipboard($"{this.Prefix}{num}{this.Safix}");
+
+            if (this.IsUseIncrement) {
+                OnCurrentNumberChange?.Invoke(this, new EventArgs());
+            }
         }
         #endregion
 
@@ -108,7 +126,19 @@ namespace MyAnnotationCopy.Component {
                 }
             }
         }
+
+        /// <summary>
+        /// 半角数値を全角に変換する
+        /// </summary>
+        /// <param name="s"></param>
+        /// <returns></returns>
+        private string HanToZenNum(string s) {
+            return Regex.Replace(s, "[0-9]", p => ((char)(p.Value[0] - '0' + '０')).ToString());
+        }
         #endregion
 
+        private void Button_Click(object sender, RoutedEventArgs e) {
+
+        }
     }
 }

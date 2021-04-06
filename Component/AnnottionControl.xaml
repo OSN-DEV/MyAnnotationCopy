@@ -23,6 +23,6 @@
         <lib:CustomTextBox ImeMode="Off" Width="60" Text="{Binding Path=Prefix, ElementName=Main}"/>
         <TextBlock Width="35" TextAlignment="Right" Text="{Binding Path=CurrentNumberLabel, ElementName=Main}"/>
         <lib:CustomTextBox ImeMode="Off"  Width="60" Text="{Binding Path=Safix, ElementName=Main}"/>
-        <Button Content="Copy" Style="{StaticResource LabelButton}" Command="{Binding CopyCommand}"/>
+        <Button Content="Copy" Style="{StaticResource LabelButton}" Click="CopyClick"/>
     </StackPanel>
 </UserControl>

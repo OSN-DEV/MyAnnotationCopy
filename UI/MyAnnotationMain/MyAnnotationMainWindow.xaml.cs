@@ -24,5 +24,16 @@ namespace MyAnnotationCopy.UI.MyAnnotationMain {
             };
         }
         #endregion
+
+        #region Event
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void CurrentNumberChange(object sender, System.EventArgs e) {
+            this._viewModel.CountUpCommand.Execute(null);
+        }
+        #endregion
     }
 }
