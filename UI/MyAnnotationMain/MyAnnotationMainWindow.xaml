@@ -7,7 +7,7 @@
         xmlns:u="clr-namespace:MyAnnotationCopy.Component"
         xmlns:lib="clr-namespace:OsnCsLib.WPFComponent.Control;assembly=OsnCsLib.WPFComponent"
         mc:Ignorable="d"
-        Title="アノテーションコピー" Height="180" Width="390" WindowStartupLocation="CenterScreen" ResizeMode="NoResize">
+        Title="アノテーションコピー" Height="260" Width="390" WindowStartupLocation="CenterScreen" ResizeMode="NoResize">
     <Window.Resources>
         <ResourceDictionary>
             <ResourceDictionary.MergedDictionaries>
@@ -19,6 +19,8 @@
     <Grid Margin="10, 5">
         <Grid.RowDefinitions>
             <RowDefinition Height="30"/>
+            <RowDefinition Height="35" />
+            <RowDefinition Height="35" />
             <RowDefinition Height="35" />
             <RowDefinition Height="35" />
             <RowDefinition Height="35" />
@@ -51,6 +53,20 @@
                             Prefix="{Binding Path=AppData.SettingDetail[2].Prefix, Mode=TwoWay}"
                             CurrentNumberLabel="{Binding AppData.CurrentNumber}"
                             Safix="{Binding Path=AppData.SettingDetail[2].Safix, Mode=TwoWay}"
+                            CurrentNumberChange="CurrentNumberChange"/>
+        <u:AnnottionControl Grid.Row="4" 
+                            IsUseIncrement="{Binding Path=AppData.SettingDetail[3].IsUseIncrement, Mode=TwoWay}"
+                            IsUseWide="{Binding Path=AppData.SettingDetail[3].IsUseWide, Mode=TwoWay}"
+                            Prefix="{Binding Path=AppData.SettingDetail[3].Prefix, Mode=TwoWay}"
+                            CurrentNumberLabel="{Binding AppData.CurrentNumber}"
+                            Safix="{Binding Path=AppData.SettingDetail[3].Safix, Mode=TwoWay}"
+                            CurrentNumberChange="CurrentNumberChange"/>
+        <u:AnnottionControl Grid.Row="5" 
+                            IsUseIncrement="{Binding Path=AppData.SettingDetail[4].IsUseIncrement, Mode=TwoWay}"
+                            IsUseWide="{Binding Path=AppData.SettingDetail[4].IsUseWide, Mode=TwoWay}"
+                            Prefix="{Binding Path=AppData.SettingDetail[4].Prefix, Mode=TwoWay}"
+                            CurrentNumberLabel="{Binding AppData.CurrentNumber}"
+                            Safix="{Binding Path=AppData.SettingDetail[4].Safix, Mode=TwoWay}"
                             CurrentNumberChange="CurrentNumberChange"/>
 
     </Grid>

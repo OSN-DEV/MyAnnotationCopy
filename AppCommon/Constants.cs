@@ -13,7 +13,7 @@ namespace MyAnnotationCopy.AppCommon {
         /// <summary>
         /// 明細の最大行数
         /// </summary>
-        internal const int MaxRowCount = 3;
+        internal const int MaxRowCount = 5;
 
         /// <summary>
         /// アプリケーションデータ
